@@ -1,3 +1,8 @@
+import os
+from django.conf import settings
+
+file_ = open(os.path.join(settings.BASE_DIR, 'filename'))
+
 from django.shortcuts import render
 from .models import Book
 from django.utils import timezone
