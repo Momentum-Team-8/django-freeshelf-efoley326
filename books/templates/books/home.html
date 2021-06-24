@@ -4,10 +4,9 @@
 <a href="{% url 'logout' %}" class="">Logout</a>
         <article>
             <h2>{{ Book.title }}</h2>
-            <p>{{ Book.author|br }}</p>
-            <p><a href="{{Book.url}}">{{ Book.url|br }}</a></p>
-            <p>{{ Book.description|br }}</p>
+            <p>{{ Book.author }}</p>
+            <p><a href="{{Book.url}}">{{ Book.url }}</a></p>
+            <p>{{ Book.description }}</p>
             <p>{{ Book.created_at }}</p>
         </article>
-    {% endfor %}
 {% endblock %}

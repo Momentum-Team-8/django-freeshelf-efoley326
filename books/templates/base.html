@@ -10,10 +10,34 @@
         <h1><a href="/">Books on Books</a></h1>
       </div>
     </header>
+
+    <h2>Log In</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% block content %}
+  <h1>Books on Books</h1>
+<div class="main-content">
+    {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    <a href="{% url 'logout' %}" class="">Logout</a>
+    <h2>
+    <a href="{% url 'book_info' %}" class="">See our collection</a>
+    </h2>
+    <p>please login to access books</p>
+    <a href="{% url 'login' %}" class="">Login</a>
+    <p>
+    <div></div>
+    <button type="submit" href="{% url 'login' %}" class="loginbutton">Log In</button>
+    <div></div>
+    </p>
+    <p>if you do not have an account,</p>
+    <br>
+    <a href="{% url 'register' %}">Register Here</a>
     <main class="container">
         <div class="row">
             <div class="col">
-            {% block content %}
+              {%  endif  %}
             {% endblock %}
             </div>
         </div>

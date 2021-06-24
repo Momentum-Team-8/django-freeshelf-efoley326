@@ -12,11 +12,11 @@ class User(AbstractUser):
         return self.username
 
 class Book(models.Model):
-    title = models.CharField(max_length=100, help_text='Book Title')
-    author = models.CharField(max_length=100, help_text='Book Author')
-    description = models.TextField()
-    book_link = models.CharField(max_length= 100, help_text='Book Link')
-    created_at = models.DateTimeField( auto_now=False, auto_now_add=True, verbose_name = "Created on")
+    title = models.CharField(max_length=100, help_text='Title')
+    author = models.CharField(max_length=100, help_text='Author')
+    description = models.TextField("")
+    book_link = models.CharField(max_length= 100, help_text='Link')
+    created_at = models.DateTimeField( auto_now=False, auto_now_add=True, verbose_name = "Created on" )
     image = models.URLField(null=True, blank=True)
 
     def __str__(self):

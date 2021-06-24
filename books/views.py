@@ -16,7 +16,7 @@ def login_button(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-    return render(request, "books/book_info.html")
+    return render(request, "books/home.html")
 
 def register(request):
     if request.method == 'POST':
@@ -29,7 +29,7 @@ def register(request):
 @login_required()
 def book_info(request):
     books = Book.objects.filter(created_at__lte=timezone.now()).order_by('created_at')
-    return render(request, 'books/login.html', {'books': books})
+    return render(request, 'books/home.html', {'books': books})
 
 def library(request):
     return render(request, "books/home.html")
