@@ -4,7 +4,22 @@
   {% csrf_token %}
   {{ form.as_p }}
   {% block content %}
-  <div></div>
-  <button type="submit" href="{% url 'auth_login' %}" class="loginbutton">Log In</button>
-  <div></div>
+  <h1>Books on Books</h1>
+<div class="main-content">
+    {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    <a href="{% url 'logout' %}" class="">Logout</a>
+    <h2>Browse our books</h2>
+    <a href="{% url 'book_info' %}" class="">See our collection</a>
+    <p>please login to access books</p>
+    <a href="{% url 'login' %}" class="">Login</a>
+    <p>
+    <div></div>
+    <button type="submit" href="{% url 'login' %}" class="loginbutton">Log In</button>
+    <div></div>
+    </p>
+    <p>if you do not have an account,</p>
+    <br>
+    <a href="{% url 'register' %}">Register Here</a>
+    {% endif %}
 {% endblock %}

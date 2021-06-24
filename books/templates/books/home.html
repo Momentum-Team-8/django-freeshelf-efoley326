@@ -1,16 +1,13 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block content %}
-<h1>Books on Books</h1>
-<div class="main-content">
-    {% if user.is_authenticated %}
-    <p>Hello, {{ user.username }}!</p>
-    <a href="{% url 'auth_logout' %}" class="">Logout</a>
-    <h2>Browse our books</h2>
-    <a href="{% url 'book_list' %}" class="">See coding resources</a>
-    {% else %}
-    <p>Please login to use Freeshelf</p>
-    <a href="{% url 'auth_login' %}" class="">Login</a>
-    {% endif %}
-</div>
-{% endblock content %} 
+<a href="{% url 'logout' %}" class="">Logout</a>
+        <article>
+            <h2>{{ Book.title }}</h2>
+            <p>{{ Book.author|br }}</p>
+            <p><a href="{{Book.url}}">{{ Book.url|br }}</a></p>
+            <p>{{ Book.description|br }}</p>
+            <p>{{ Book.created_at }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
