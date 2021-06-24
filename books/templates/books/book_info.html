@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'auth_logout' %}" class="">Logout</a>
+        <article>
+            <h2>{{ Book.title }}</h2>
+            <p>{{ Book.author|br }}</p>
+            <p><a href="{{Book.url}}">{{ Book.url|br }}</a></p>
+            <p>{{ Book.description|br }}</p>
+            <p>{{ Book.created_at }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
